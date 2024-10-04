@@ -9,17 +9,18 @@ Run below npm commands in vscode terminal.
 
 ### How to use
 1. Add the Below script tag in head section.
+   <br/>
       <script src="./_content/Blazor.Extensions.RCanvas/Canvas/RCanvas.razor.js" type="text\javascript"></script>
 
-2. Add the below namespaces in the component or page.
-       @using Blazor.Extensions.RCanvas.Canvas;
+3. Add the below namespaces in the component or page. <br/>
+       @using Blazor.Extensions.RCanvas.Canvas; <br/>
        @using WebComponents.Components.Controls.Canvas
 
-3. Use the Canvas by add the below html tag.
-       <RCanvas @ref="Canv" Width="400" Height="400"></RCanvas>
+4. Use the Canvas by add the below html tag. <br/>
+       <RCanvas @ref="Canv" Width="400" Height="400"></RCanvas> <br/>
        <button @onclick="CreateCanvas">Create Canvas</button>
 
-4. In CS code how to access, see the below snippet.
+5. In CS code how to access, see the below snippet.
 
         
 @code {
