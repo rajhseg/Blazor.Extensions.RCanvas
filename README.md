@@ -17,8 +17,7 @@ Run below npm commands in vscode terminal.
        @using WebComponents.Components.Controls.Canvas
 
 4. Use the Canvas by add the below html tag. <br/>
-       <RCanvas @ref="Canv" Width="400" Height="400"></RCanvas> <br/>
-       <button @onclick="CreateCanvas">Create Canvas</button>
+       <RCanvas @ref="Canv" Width="400" Height="400"></RCanvas> <br/>       
 
 5. In CS code how to access, see the below snippet.
 
