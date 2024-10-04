@@ -2,9 +2,9 @@
 This repo is consists of Canvas integration in Blazor
 
 Run below npm commands in vscode terminal.
-1. select Blazor.Extensions.RCanvas Project
-2. type npm install typescript in terminal
-3. ctrl+shift+b in vscode, then select tsconfig.json for build the TS files in this project.
+1. Select "Blazor.Extensions.RCanvas" Project
+2. Type "npm install typescript" in terminal
+3. Ctrl+Shift+B in vscode, then select tsconfig.json for build the TS files in this project.
 4. Run the Project and see the Canvas is rendered when you click the button.
 
 ### How to use
