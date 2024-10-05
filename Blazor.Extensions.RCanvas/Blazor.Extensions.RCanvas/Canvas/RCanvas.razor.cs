@@ -45,11 +45,11 @@ public partial class RCanvas : ICanvasEntity, IAsyncDisposable
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender){
+        if(firstRender) {
             var idString = Guid.NewGuid().ToString();
             this._id = "rcanvas_" + idString;
             this._containerId = "rcanvas_con_"+idString;
-
+                        
             this.jsModule = await Runtime.InvokeAsync<IJSObjectReference>("import", "./_content/Blazor.Extensions.RCanvas/Canvas/RCanvas.razor.js");
 
             await InvokeAsync(()=> StateHasChanged());
@@ -75,8 +75,6 @@ public partial class RCanvas : ICanvasEntity, IAsyncDisposable
 
     public async ValueTask DisposeAsync()
     {
-        if(this.jsModule!=null){
-            await this.jsModule.DisposeAsync();
-        }
+        await Task.CompletedTask;
     }
 }

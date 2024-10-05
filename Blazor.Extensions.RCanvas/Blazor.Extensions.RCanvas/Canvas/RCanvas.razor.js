@@ -122,3 +122,4 @@ export function ConvertToJson(obj) {
     return value;
 }
 // export { CreateContext, ConvertToJsonString };
+//# sourceMappingURL=RCanvas.razor.js.map

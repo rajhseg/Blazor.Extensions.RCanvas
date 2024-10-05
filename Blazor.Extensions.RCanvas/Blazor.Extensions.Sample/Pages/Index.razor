@@ -1,19 +1,28 @@
 ﻿@page "/"
 
 @using Blazor.Extensions.RCanvas.Canvas;
-@using WebComponents.Components.Controls.Canvas
+@using WebComponents.Components.Controls.Canvas 
 
 <PageTitle>Canvas</PageTitle>
 
 <h1>Canvas Sample</h1>
 
 <RCanvas @ref="Canv" Width="400" Height="400"></RCanvas>
+
+<RCanvas @ref="Canv2" Width="400" Height="400"></RCanvas>
+
+<RCanvas @ref="Canv3" Width="400" Height="400"></RCanvas>
+
 <button @onclick="CreateCanvas">Create Canvas</button>
 
 
 @code {
 
     private RCanvas Canv {get; set;}
+
+    private RCanvas Canv2 {get; set;}
+
+    private RCanvas Canv3 {get; set;}
 
     private CanvasContext canvasContext;
 
@@ -40,7 +49,34 @@
             canvasContext.FillStyle = res.RsubId;
             await canvasContext.FillRectAsync(20,20,150,100);
             await canvasContext.ClosePathAsync();
+
+            await canvasContext.SetLineDashAsync(new double[] {5, 16});
+            await canvasContext.BeginPathAsync();
+            canvasContext.LineWidth = 4;
+            canvasContext.StrokeStyle = "white";
+            await canvasContext.MoveToAsync(25,22);
+            await canvasContext.LineToAsync(125, 22);
+            await canvasContext.LineToAsync(125, 122);
+            await canvasContext.StrokeAsync();
+            
         }
+
+        var canvasContext2 = await this.Canv2.CreateContext2DAsync();
+
+        await canvasContext2.BeginPathAsync();
+        await canvasContext2.MoveToAsync(0, 0);
+        await canvasContext2.LineToAsync(150,150);
+        await canvasContext2.StrokeAsync();
+        await canvasContext2.ClosePathAsync();
+
+        var canvasContext3 = await this.Canv3.CreateContext2DAsync();
+        
+        await canvasContext3.BeginPathAsync();
+        await canvasContext3.MoveToAsync(0, 0);
+        await canvasContext3.LineToAsync(150,150);
+        await canvasContext3.StrokeAsync();
+        await canvasContext3.ClosePathAsync();
+        
     }
 
 
