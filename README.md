@@ -1,5 +1,5 @@
 # Blazor.Extensions.RCanvas
-This repository consists of Canvas integration or Canvas Reference in Blazor. we can use the exact methods and properties of canvas in blazor to draw a 2D context.
+This repository consists of Canvas integration or Canvas Reference in Blazor. we can use the exact methods and properties of canvas javascript in blazor to draw a 2D context.
 
 Run below npm commands in vscode terminal.
 1. Select "Blazor.Extensions.RCanvas" Project
