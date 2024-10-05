@@ -10,7 +10,7 @@ Run below npm commands in vscode terminal.
 ### How to use
 1. Add the Below script tag in head section.
    <br/>
-      <script src="./_content/Blazor.Extensions.RCanvas/Canvas/RCanvas.razor.js" type="text\javascript"></script>
+      <script src="./_content/Blazor.Extensions.RCanvas/Canvas/RCanvas.razor.js" type="text\javascript"></script>      
 
 3. Add the below namespaces in the component or page. <br/>
        @using Blazor.Extensions.RCanvas.Canvas; <br/>
