@@ -1,4 +1,4 @@
-namespace Blazor.Extensions.Sample.Data;
+namespace Blazor.Extensions.Example.Data;
 
 public class WeatherForecastService
 {

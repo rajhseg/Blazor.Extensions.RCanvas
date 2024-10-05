@@ -38,14 +38,9 @@ let objsAddToDict = [
 }
 
  export function ConvertToJsonString(obj: object){
-    let value = JSON.stringify(MapProps(obj)).toString();
-    console.log("context");
-    console.log(obj);
-    console.log(value);
-    
-    let jsonObj = ConvertToJson(value);
 
-    console.log(jsonObj);
+    let value = JSON.stringify(MapProps(obj)).toString();        
+    let jsonObj = ConvertToJson(value);
 
     return jsonObj;
 }

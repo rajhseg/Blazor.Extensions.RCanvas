@@ -1,0 +1,119 @@
+﻿@page "/"
+
+@using Blazor.Extensions.RCanvas.Canvas;
+@using WebComponents.Components.Controls.Canvas
+
+<PageTitle>Index</PageTitle>
+
+
+<RCanvas @ref="Canv" Width="400" Height="400"></RCanvas>
+
+<RCanvas @ref="Canv2" Width="400" Height="400"></RCanvas>
+
+<RCanvas @ref="Canv3" Width="400" Height="400"></RCanvas>
+
+<button @onclick="CreateCanvas">Create Canvas</button>
+
+
+@code {
+
+    private RCanvas Canv { get; set; }
+
+    private RCanvas Canv2 { get; set; }
+
+    private RCanvas Canv3 { get; set; }
+
+    private CanvasContext canvasContext;
+
+    protected override async Task OnInitializedAsync()
+    {        
+        await base.OnInitializedAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {    
+        try {
+            if(firstRender) {
+
+                this.Canv.ScriptLoaded = async () =>
+                {
+                    await CreateCanvas();
+                };
+
+                this.Canv2.ScriptLoaded = async () =>
+                {
+                    if(this.Canv2.IsScriptLoaded) 
+                    {
+                        var canvasContext2 = await this.Canv2.CreateContext2DAsync();
+
+                        await canvasContext2.BeginPathAsync();
+                        await canvasContext2.MoveToAsync(0, 0);
+                        await canvasContext2.LineToAsync(150, 150);
+                        await canvasContext2.StrokeAsync();
+                        await canvasContext2.ClosePathAsync();
+                    }
+                };
+
+                this.Canv3.ScriptLoaded = async () =>
+                {
+                    if(this.Canv3.IsScriptLoaded)
+                    {
+                        var canvasContext3 = await this.Canv3.CreateContext2DAsync();
+
+                        await canvasContext3.BeginPathAsync();
+                        await canvasContext3.MoveToAsync(0, 0);
+                        await canvasContext3.LineToAsync(150, 150);
+                        await canvasContext3.StrokeAsync();
+                        await canvasContext3.ClosePathAsync();
+                    }
+                };
+
+            }
+        }
+        catch(Exception ex){
+            string m = ex.Message;
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async Task CreateCanvas()
+    {
+
+        if (this.Canv.IsScriptLoaded)
+        {
+            canvasContext = await this.Canv.CreateContext2DAsync();
+
+            if (canvasContext != null)
+            {
+                await canvasContext.BeginPathAsync();
+                canvasContext.LineWidth = 2;
+                var met = await canvasContext.MeasureTextAsync("Sample Title");
+                await canvasContext.MoveToAsync(0, 0);
+                await canvasContext.LineToAsync(300, 170);
+                await canvasContext.StrokeAsync();
+                await canvasContext.ClosePathAsync();
+
+                await canvasContext.BeginPathAsync();
+                var res = await canvasContext.CreateLinearGradientAsync(0, 0, 270, 0);
+                await res.AddColorStopAsync(0, "blue");
+                await res.AddColorStopAsync(0.7, "yellow");
+                await res.AddColorStopAsync(1, "red");
+                canvasContext.FillStyle = res.RsubId;
+                await canvasContext.FillRectAsync(20, 20, 150, 100);
+                await canvasContext.ClosePathAsync();
+
+                await canvasContext.SetLineDashAsync(new double[] { 5, 16 });
+                await canvasContext.BeginPathAsync();
+                canvasContext.LineWidth = 4;
+                canvasContext.StrokeStyle = "white";
+                await canvasContext.MoveToAsync(25, 22);
+                await canvasContext.LineToAsync(125, 22);
+                await canvasContext.LineToAsync(125, 122);
+                await canvasContext.StrokeAsync();
+
+            }
+        }
+    }
+
+}

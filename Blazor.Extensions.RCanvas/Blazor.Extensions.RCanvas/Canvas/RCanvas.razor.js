@@ -27,11 +27,7 @@ export function CreateContext(obj) {
 }
 export function ConvertToJsonString(obj) {
     var value = JSON.stringify(MapProps(obj)).toString();
-    console.log("context");
-    console.log(obj);
-    console.log(value);
     var jsonObj = ConvertToJson(value);
-    console.log(jsonObj);
     return jsonObj;
 }
 export function DispatchProps(args) {
@@ -122,4 +118,3 @@ export function ConvertToJson(obj) {
     return value;
 }
 // export { CreateContext, ConvertToJsonString };
-//# sourceMappingURL=RCanvas.razor.js.map
