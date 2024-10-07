@@ -2,7 +2,7 @@
 
 
 
-let Dict: { [key : string]: CanvasRenderingContext2D } = {};
+let Dict: { [key : string]: any } = {};
 
 let num = 111;
 
