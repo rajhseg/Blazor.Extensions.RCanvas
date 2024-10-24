@@ -28,28 +28,49 @@ Run below npm commands in vscode terminal.
 
     private CanvasContext canvasContext;
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {    
+        try {
+            if(firstRender) {
+                this.Canv.ScriptLoaded = async () =>
+                {
+                    await CreateCanvas();
+                };               
+            }
+        }
+        catch(Exception ex){
+            string m = ex.Message;
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+
     private async Task CreateCanvas(){
-        
-        canvasContext = await this.Canv.CreateContext2DAsync();
 
-        if(canvasContext!=null)
-        {
-            await canvasContext.BeginPathAsync();
-            canvasContext.LineWidth = 2;
-            var met = await canvasContext.MeasureTextAsync("Sample Title");
-            await canvasContext.MoveToAsync(0, 0);
-            await canvasContext.LineToAsync(300, 170);
-            await canvasContext.StrokeAsync();
-            await canvasContext.ClosePathAsync();
-
-            await canvasContext.BeginPathAsync();
-            var res = await canvasContext.CreateLinearGradientAsync(0,0,270, 0);
-            await res.AddColorStopAsync(0, "blue");
-            await res.AddColorStopAsync(0.7, "yellow");
-            await res.AddColorStopAsync(1, "red");
-            canvasContext.FillStyle = res.RsubId;
-            await canvasContext.FillRectAsync(20,20,150,100);
-            await canvasContext.ClosePathAsync();
+        if (this.Canv.IsScriptLoaded)
+        {        
+           canvasContext = await this.Canv.CreateContext2DAsync();
+   
+           if(canvasContext!=null)
+           {
+               await canvasContext.BeginPathAsync();
+               canvasContext.LineWidth = 2;
+               var met = await canvasContext.MeasureTextAsync("Sample Title");
+               await canvasContext.MoveToAsync(0, 0);
+               await canvasContext.LineToAsync(300, 170);
+               await canvasContext.StrokeAsync();
+               await canvasContext.ClosePathAsync();
+   
+               await canvasContext.BeginPathAsync();
+               var res = await canvasContext.CreateLinearGradientAsync(0,0,270, 0);
+               await res.AddColorStopAsync(0, "blue");
+               await res.AddColorStopAsync(0.7, "yellow");
+               await res.AddColorStopAsync(1, "red");
+               canvasContext.FillStyle = res.RsubId;
+               await canvasContext.FillRectAsync(20,20,150,100);
+               await canvasContext.ClosePathAsync();
+           }
         }
     }
 }
