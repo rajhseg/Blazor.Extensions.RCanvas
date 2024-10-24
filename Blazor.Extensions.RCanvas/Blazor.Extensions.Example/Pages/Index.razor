@@ -86,6 +86,9 @@
 
             if (canvasContext != null)
             {
+                await canvasContext.ResetAsync();
+                await canvasContext.ClearRectAsync(0,0, Canv.Width, Canv.Height);
+
                 await canvasContext.BeginPathAsync();
                 canvasContext.LineWidth = 2;
                 var met = await canvasContext.MeasureTextAsync("Sample Title");
