@@ -4,6 +4,19 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+
+    <PackageReadmeFile>README.md</PackageReadmeFile>    
+    <PackageId>Blazor.Extensions.RCanvas</PackageId>
+    <Version>4.0.0</Version>
+    <Authors>Rajhsesg</Authors>
+    <Company>SKC</Company>
+    <ProjectUrl>https://github.com/rajhseg/Blazor.Extensions.RCanvas</ProjectUrl>
+    <Description>This Package consists of Canvas integration or Canvas Reference in Blazor. we can use the exact methods and properties of canvas javascript in blazor to draw a 2D context</Description>
+    <Tags>DotnetCore,Blazor,Canvas</Tags>
   </PropertyGroup>
 
 
@@ -12,12 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.10" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.10" />    
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\" />    
+  </ItemGroup>
+
+  <ItemGroup>        
+    <None Include=".\README.md" Pack="true" PackagePath="\"/>        
+    <None Include=".\LICENSE.txt" Pack="true" PackagePath="\"/>        
   </ItemGroup>
 
 </Project>

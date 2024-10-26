@@ -16,7 +16,7 @@ let objsAddToDict = [
                         'skewY', 'skewX', 'scaleNonUniform', 'scale3d',
                         'scale', 'rotateFromVector', 'rotateAxisAngle', 'rotate',
                         'multiply', 'inverse', 'flipY', 'flipX', 'matrixTransform'
-                    ]
+                    ];
                     
 
  export function ClearContext(obj: {Id: string}){
@@ -51,7 +51,7 @@ let objsAddToDict = [
     return value;
 }
 
- export function ConvertToJsonString(obj: object){
+export function ConvertToJsonString(obj: object){
     let value = JSON.stringify(MapProps(obj)).toString();        
     let jsonObj = ConvertToJson(value);
 
@@ -174,5 +174,3 @@ export function ConvertToJson(obj: string){
     let value = JSON.parse(obj);
     return value;
 }
-
-// export { CreateContext, ConvertToJsonString };
