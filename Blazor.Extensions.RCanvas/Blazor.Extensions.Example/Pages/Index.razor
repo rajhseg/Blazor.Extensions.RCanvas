@@ -5,6 +5,9 @@
 
 <PageTitle>Index</PageTitle>
 
+@if(@trs!=null) {
+    <label>A :</label> @trs.a  
+}
 
 <RCanvas @ref="Canv" Width="400" Height="400"></RCanvas>
 
@@ -20,6 +23,8 @@
     private RCanvas Canv { get; set; }
 
     private RCanvas Canv2 { get; set; }
+
+    private DOMMatrix trs {get; set; }
 
     private RCanvas Canv3 { get; set; }
 
@@ -114,6 +119,28 @@
                 await canvasContext.LineToAsync(125, 22);
                 await canvasContext.LineToAsync(125, 122);
                 await canvasContext.StrokeAsync();
+                    
+                canvasContext.FillStyle = "yellow";
+                await canvasContext.FillRectAsync(0, 0, 250, 100);
+
+                await canvasContext.TransformAsync(1, 0.5, -0.5, 1, 30, 10);
+                canvasContext.FillStyle = "red";
+                await canvasContext.FillRectAsync(0, 0, 250, 100);
+
+                await canvasContext.TransformAsync(1, 0.5, -0.5, 1, 30, 10);
+                canvasContext.FillStyle = "blue";
+                await canvasContext.FillRectAsync(0, 0, 250, 100);
+
+                trs = await canvasContext.GetTransformAsync();
+
+                await trs.FlipYAsync();
+
+                var rt = await trs.RotateAsync();
+                await rt.RotateAxisAngleAsync(100,100,100,45);
+
+                var a1 = rt.a;    
+
+                await InvokeAsync(()=> StateHasChanged());         
             }
         }
     }

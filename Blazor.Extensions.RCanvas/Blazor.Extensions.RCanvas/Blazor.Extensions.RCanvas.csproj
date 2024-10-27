@@ -11,7 +11,7 @@
 
     <PackageReadmeFile>README.md</PackageReadmeFile>    
     <PackageId>Blazor.Extensions.RCanvas</PackageId>
-    <Version>5.0.0</Version>
+    <Version>6.0.0</Version>
     <Authors>Rajhsesg</Authors>
     <Company>SKC</Company>    
     <Description>This Package consists of Canvas integration or Canvas Reference in Blazor. we can use the exact methods and properties of canvas javascript in blazor to draw a 2D context</Description>

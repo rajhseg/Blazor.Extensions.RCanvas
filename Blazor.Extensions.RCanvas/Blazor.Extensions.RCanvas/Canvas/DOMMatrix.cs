@@ -8,29 +8,6 @@ using System.Text.Json.Serialization;
 namespace WebComponents.Components.Controls.Canvas;
 
 public class DOMMatrix: DOMMatrixReadOnly {   
-
-    public double a { set; get; }
-    public double b { set; get; }
-    public double c { set; get; }
-    public double d { set; get; }
-    public double e { set; get; }
-    public double f { set; get; }
-    public double m11 { set; get; }
-    public double m12 { set; get; }
-    public double m13 { set; get; }
-    public double m14 { set; get; }
-    public double m21 { set; get; }
-    public double m22 { set; get; }
-    public double m23 { set; get; }
-    public double m24 { set; get; }
-    public double m31 { set; get; }
-    public double m32 { set; get; }
-    public double m33 { set; get; }
-    public double m34 { set; get; }
-    public double m41 { set; get; }
-    public double m42 { set; get; }
-    public double m43 { set; get; }
-    public double m44 { set; get; }
     
     public async Task<DOMMatrix> InvertSelfAsync() {
         string functionName  = GetJsFunctionName();

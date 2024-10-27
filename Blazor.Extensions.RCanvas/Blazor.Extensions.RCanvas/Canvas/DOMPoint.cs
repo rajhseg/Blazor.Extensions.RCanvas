@@ -8,13 +8,6 @@ namespace WebComponents.Components.Controls.Canvas;
 
 public class DOMPoint : DOMPointReadOnly {
     
-    public double? w { get; set; }
-    
-    public double? x { get; set; }
-    
-    public double? y { get; set; }
-    
-    public double? z { get; set; }
 }
 
 public class DOMPointReadOnly {
