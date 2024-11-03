@@ -8,7 +8,8 @@ Run below npm commands in vscode terminal if you use code directly.
 4. Run the Project and see the Canvas is rendered when you click the button.
 
 Run below command if you use package 
-1. install nuget package "Blazor.Extensions.RCanvas" to the Project
+1. dotnet add package Blazor.Extensions.RCanvas --version 10.0.0
+2. OnAfterRenderAsync should get called, so then only canvas will render
    
 ### How to use
 1. Add the Below script tag in head section.
