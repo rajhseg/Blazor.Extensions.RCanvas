@@ -1,11 +1,13 @@
 # Blazor.Extensions.RCanvas
 This repository consists of Canvas integration or Canvas Reference in Blazor. we can use the exact methods and properties of canvas javascript in blazor to draw a 2D context.
 
-Run below npm commands in vscode terminal if you use code directly.
-1. Select "Blazor.Extensions.RCanvas" Project
-2. Type "npm install typescript" in terminal
-3. Ctrl+Shift+B in vscode, then select tsconfig.json for build the TS files in this project.
-4. Run the Project and see the Canvas is rendered when you click the button.
+Run below npm commands in vscode terminal if you use code directly by download this project.
+1. Select "Blazor.Extensions.RCanvas" Project from download the above project.
+   we have two projects in the solution, one is example project, second one is canvas library, so select the second one
+2. "F:\Blazor.Extensions.RCanvas\Blazor.Extensions.RCanvas\Blazor.Extensions.RCanvas>"
+3. Type "npm install -g typescript" in terminal
+4. Ctrl+Shift+B in vscode, then select tsconfig.json for build the TS files in this project.
+5. Run the Project and see the Canvas is rendered when you click the button.
 
 Run below command if you use package 
 1. dotnet add package Blazor.Extensions.RCanvas --version 10.0.0
